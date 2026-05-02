@@ -1,23 +1,27 @@
-# SimCLR-Vision-SSL
+# SimCLR-Vision-SSL 🔍
 
 > Self-Supervised Contrastive Learning for Visual Representations  
 > A research-level implementation of SimCLR with ablations, BYOL comparison, and downstream evaluation.
 
-[Python 3.10+] | [PyTorch 2.1+] | [License: MIT] | [Status: In Progress]
+![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python)
+![PyTorch](https://img.shields.io/badge/PyTorch-2.1+-ee4c2c?logo=pytorch)
+![License](https://img.shields.io/badge/License-MIT-green)
+![Status](https://img.shields.io/badge/Status-In%20Progress-yellow)
 
 ---
 
-## Overview
+## 📌 Overview
 
-This repository implements **SimCLR** (Chen et al., ICML 2020) — a simple framework for contrastive self-supervised learning of visual representations — along with:
+This repository implements **SimCLR** (Chen et al., ICML 2020) — a simple framework for 
+contrastive self-supervised learning of visual representations — along with:
 
-- Full data augmentation pipeline with ablation studies
-- NT-Xent loss with temperature scaling
-- Linear evaluation protocol and KNN evaluation
-- BYOL comparison baseline
-- Transfer learning evaluation on STL-10
-- t-SNE embedding visualization
-- Interactive similarity search demo *(coming soon)*
+- ✅ Full data augmentation pipeline with ablation studies
+- ✅ NT-Xent loss with temperature scaling
+- ✅ Linear evaluation protocol & KNN evaluation
+- ✅ BYOL comparison baseline
+- ✅ Transfer learning evaluation on STL-10
+- ✅ t-SNE embedding visualization
+- 🔄 Interactive similarity search demo *(coming soon)*
 
 > **Course:** Machine Learning Capstone — Group 20  
 > **Team:** Mahmoud Alyosify · Mirna Embaby · Natalie Nashed  
@@ -25,7 +29,7 @@ This repository implements **SimCLR** (Chen et al., ICML 2020) — a simple fram
 
 ---
 
-## Results (Preliminary)
+## 📊 Results (Preliminary)
 
 | Method | Backbone | Dataset | Linear Probe Top-1 |
 |---|---|---|---|
@@ -33,7 +37,7 @@ This repository implements **SimCLR** (Chen et al., ICML 2020) — a simple fram
 | SimCLR (200 epochs) | ResNet-18 | CIFAR-10 | TBD |
 | SimCLR (500 epochs) | ResNet-18 | CIFAR-10 | TBD |
 | BYOL | ResNet-18 | CIFAR-10 | TBD |
-| SimCLR to Transfer | ResNet-18 | STL-10 | TBD |
+| SimCLR → Transfer | ResNet-18 | STL-10 | TBD |
 
 *Results will be updated as experiments complete.*
 
