@@ -10,7 +10,7 @@
 
 ---
 
-## 📌 Overview
+##  Overview
 
 This repository implements **SimCLR** (Chen et al., ICML 2020) — a simple framework for 
 contrastive self-supervised learning of visual representations — along with:
@@ -23,13 +23,13 @@ contrastive self-supervised learning of visual representations — along with:
 - ✅ t-SNE embedding visualization
 - 🔄 Interactive similarity search demo *(coming soon)*
 
-> **Course:** Machine Learning Capstone — Group 20  
+> **Course:** CISC 867 Deep Learning S26 — Group 20  
 > **Team:** Mahmoud Alyosify · Mirna Embaby · Natalie Nashed  
 > **GPU:** NVIDIA RTX 5000 Ada Generation
 
 ---
 
-## 📊 Results (Preliminary)
+## Results (Preliminary)
 
 | Method | Backbone | Dataset | Linear Probe Top-1 |
 |---|---|---|---|
