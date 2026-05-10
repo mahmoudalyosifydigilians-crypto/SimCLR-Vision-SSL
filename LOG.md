@@ -1,0 +1,41 @@
+# CISC 867 Project 20 - Group 20 Development Log
+
+This log tracks weekly progress, key decisions, issues encountered, and the individual contributions of each team member. This log is consistent with the Git commit history.
+
+---
+
+## Week 1 (May 4, 2026 - May 10, 2026)
+
+### 🎯 Weekly Goals
+- Understand SimCLR framework and set up the repository structure.
+- Implement initial data augmentation pipeline for CIFAR-10.
+- Build ResNet-50 modified backbone, Projection Head, and NT-Xent loss.
+- Train supervised baseline and run a preliminary contrastive training loop to verify loss convergence.
+
+---
+### 👩‍💻 Natalie Nashed (Data Augmentation Pipeline Lead)
+* **Progress:** Created `augmentations.py` using `torchvision.transforms`. Implemented Random Resized Crop, Color Jitter, Grayscale, and Horizontal Flip. Created visualizations of positive pairs to include in the midterm report.
+* **Key Decisions:** Explicitly excluded Gaussian Blur from the default pipeline for CIFAR-10, aligning with the SimCLR paper's appendix recommendations for small-resolution images.
+* **Issues Encountered:** Needed to ensure that the augmentation pipeline generates two *independent* views for the exact same image in a single pass; built a custom Dataset wrapper `SimCLRDataset` to handle returning tuples of augmented images.
+* **Key Commits:**
+  * `[Insert-Commit-Hash-Here]` - Added base CIFAR-10 dataset downloader and loader.
+  * `[Insert-Commit-Hash-Here]` - Implemented dual-view stochastic augmentation pipeline.
+
+---
+
+### 👨‍💻 Mahmoud Alyosify (Contrastive Learning Framework Lead)
+* **Progress:** Implemented the SimCLR core architecture. Modified the ResNet-50 stem for $32\times32$ CIFAR-10 images (replaced $7\times7$ Conv with $3\times3$ Conv stride 1, and removed MaxPool). Built the 2-layer MLP projection head and the NT-Xent loss function. Ran a preliminary training loop to verify loss convergence.
+* **Key Decisions:** Set NT-Xent temperature parameter $\tau=0.5$ based on optimal CIFAR-10 settings from the original paper. Used a smaller batch size temporarily for local testing before scaling to the RTX 5000 Ada GPU.
+* **Issues Encountered:** Implementing the NT-Xent mask to exclude self-similarity correctly required careful handling of matrix operations; resolved using `torch.eye` as a boolean mask.
+* **Key Commits:**
+  * `[Insert-Commit-Hash-Here]` - Implemented SimCLR modified ResNet-50 encoder and MLP projection head.
+  * `[Insert-Commit-Hash-Here]` - Added NT-Xent loss function and preliminary training loop.
+
+---
+### 👩‍💻 Mirna Imbabi (Linear Evaluation & Reporting Lead)
+* **Progress:** Set up the initial `LOG.md` and `README.md` structure. Trained the supervised ResNet-50 baseline model on CIFAR-10 to establish a comparative benchmark.
+* **Key Decisions:** Used standard Cross-Entropy loss and default PyTorch parameters for the supervised baseline to ensure a fair evaluation later.
+* **Issues Encountered:** Minor dependency issues with `torchvision` during baseline training, resolved by pinning the specific library versions in `requirements.txt`.
+* **Key Commits:**
+  * `[Insert-Commit-Hash-Here]` - Initialized project structure, README, and LOG.md.
+  * `[Insert-Commit-Hash-Here]` - Added baseline ResNet-50 supervised training script.
