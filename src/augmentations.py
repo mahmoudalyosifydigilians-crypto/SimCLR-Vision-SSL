@@ -85,3 +85,22 @@ transform_exp6 = T.Compose([
     T.ToTensor(),
     T.Normalize(CIFAR_MEAN, CIFAR_STD)
 ])
+
+# EXP 7 — Crop + Color + Grayscale
+transform_exp7 = T.Compose([
+    T.RandomResizedCrop(32, scale=(0.2, 1.0)),
+    rnd_color_jitter,
+    T.RandomGrayscale(p=0.2),
+    T.ToTensor(),
+    T.Normalize(CIFAR_MEAN, CIFAR_STD)
+])
+
+# EXP 8 — Crop + Flip + Color + Grayscale
+transform_exp8 = T.Compose([
+    T.RandomResizedCrop(32, scale=(0.2, 1.0)),
+    T.RandomHorizontalFlip(),
+    rnd_color_jitter,
+    T.RandomGrayscale(p=0.2),
+    T.ToTensor(),
+    T.Normalize(CIFAR_MEAN, CIFAR_STD)
+])
