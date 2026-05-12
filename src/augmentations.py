@@ -32,6 +32,10 @@ class SimCLRViewGenerator(object):
         return [self.base_transform(x) for i in range(self.n_views)]
 
 
+color_jitter = T.ColorJitter(0.8*s, 0.8*s, 0.8*s, 0.2*s)
+# Applying jitter with 0.8 probability as per Chen et al. (2020)
+rnd_color_jitter = T.RandomApply([color_jitter], p=0.8)
+
 
 # EXPERIMENT 1 — Random Resized Crop (Crop + Resize)
 transform_exp1 = T.Compose([
@@ -48,3 +52,36 @@ transform_exp2 = T.Compose([
     T.Normalize(CIFAR_MEAN, CIFAR_STD)
 ])
 
+# EXP 3 — Crop + Color
+transform_exp3 = T.Compose([
+    T.RandomResizedCrop(32, scale=(0.2, 1.0)),
+    rnd_color_jitter,
+    T.ToTensor(),
+    T.Normalize(CIFAR_MEAN, CIFAR_STD)
+])
+
+# EXP 4 — Crop + Grayscale
+transform_exp4 = T.Compose([
+    T.RandomResizedCrop(32, scale=(0.2, 1.0)),
+    T.RandomGrayscale(p=0.2),
+    T.ToTensor(),
+    T.Normalize(CIFAR_MEAN, CIFAR_STD)
+])
+
+# EXP 5 — Crop + Flip + Color
+transform_exp5 = T.Compose([
+    T.RandomResizedCrop(32, scale=(0.2, 1.0)),
+    T.RandomHorizontalFlip(),
+    rnd_color_jitter,
+    T.ToTensor(),
+    T.Normalize(CIFAR_MEAN, CIFAR_STD)
+])
+
+# EXP 6 — Crop + Flip + Grayscale
+transform_exp6 = T.Compose([
+    T.RandomResizedCrop(32, scale=(0.2, 1.0)),
+    T.RandomHorizontalFlip(),
+    T.RandomGrayscale(p=0.2),
+    T.ToTensor(),
+    T.Normalize(CIFAR_MEAN, CIFAR_STD)
+])
