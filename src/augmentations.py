@@ -2,9 +2,11 @@
 # IMPORT PART
 import torchvision.transforms as T
 import yaml
+import os
 
-# Load configs
-with open('../configs/augmentation.yaml', 'r') as file:
+# Load configs - use absolute path relative to this file
+config_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'configs', 'augmentation.yaml')
+with open(config_path, 'r') as file:
     config = yaml.safe_load(file)
 
 CIFAR_MEAN = tuple(config['normalization']['cifar_mean'])
