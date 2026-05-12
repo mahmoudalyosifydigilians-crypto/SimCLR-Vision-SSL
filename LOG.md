@@ -28,8 +28,9 @@ This log tracks weekly progress, key decisions, issues encountered, and the indi
 * **Key Decisions:** Set NT-Xent temperature parameter $\tau=0.5$ based on optimal CIFAR-10 settings from the original paper. Used a smaller batch size temporarily for local testing before scaling to the RTX 5000 Ada GPU.
 * **Issues Encountered:** Implementing the NT-Xent mask to exclude self-similarity correctly required careful handling of matrix operations; resolved using `torch.eye` as a boolean mask.
 * **Key Commits:**
-  * `[Insert-Commit-Hash-Here]` - Implemented SimCLR modified ResNet-50 encoder and MLP projection head.
-  * `[Insert-Commit-Hash-Here]` - Added NT-Xent loss function and preliminary training loop.
+  * `a2410aa7e0271425374f452171dffdd8a4948007` - feat(model): modify ResNet-50 stem for 32x32 (CIFAR-10) images and implement 2-layer MLP projection head
+  * `13c987f05627ad0702220c4574ade70ee7d87a4f` - feat(loss): implement NT-Xent loss function with temperature scaling and self-similarity masking
+  * `b051778e7beb454c3915af5dbe3696430a588e08` - feat(train): build SimCLR contrastive training loop and logging setup
 
 ---
 ### 👩‍💻 Mirna Imbabi (Linear Evaluation & Reporting Lead)
