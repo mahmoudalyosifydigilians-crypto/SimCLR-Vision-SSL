@@ -24,6 +24,7 @@ This log tracks weekly progress, key decisions, issues encountered, and the indi
   * `[83fed8aee4ea78bdceac1d6bb35cded765f64737]` - feat(data): integrate photometric distortions and hybrid pipelines [ Exp 3-6 ]
   * `[518d35e4e0a528a4755872fb2a2063028e2bdf1c]` - feat(data): finalize comprehensive contrastive augmentation suite [ Exp 7-8 ]
   * `[c509405245433993e3d5b3f38ba7959ba3fa9573]` - feat(data): create Custom AugmentedDataset wrapper and initialize dataloaders
+  * `[d73db8faf5eae69ce7d5a5db69035473099d371a]` - chore(vis): add Jupyter notebook for qualitative visualization of augmentation experiments
 ---
 
 ### 👨‍💻 Mahmoud Alyosify (Contrastive Learning Framework Lead)
